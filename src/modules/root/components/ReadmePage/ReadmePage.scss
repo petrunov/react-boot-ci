@@ -1,0 +1,23 @@
+.ReadmePage {
+  width: 50%;
+  margin: 50px auto;
+  background: #e3efef;
+  padding: 20px;
+  border-radius: 20px;
+
+  h1 {
+    text-align: center;
+  }
+
+  li {
+    margin: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

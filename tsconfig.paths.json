@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "_/*": ["./src/*"],
+      "_root/*": ["./src/modules/root/*"],
+      "_common/*": ["./src/modules/common/*"],
+      "_dashboard/*": ["./src/modules/dashboard/*"]
+    }
+  }
+}

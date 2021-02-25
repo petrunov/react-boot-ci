@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb-typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "plugins": ["jsx-a11y", "prettier", "jest"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "eslint-comments/no-unused-disable": "error",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  },
+  "ignorePatterns": [
+    "/node_modules/**",
+    "/build/**",
+    "/src/**/*.scss",
+    "*.png",
+    "*.jpg",
+    "*.jpeg",
+    "*.ico",
+    "config-overrides.js"
+  ]
+}
