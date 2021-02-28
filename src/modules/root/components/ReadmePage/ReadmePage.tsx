@@ -8,10 +8,10 @@ const ReadmePage: React.FC = (): JSX.Element => (
     <div className="ReadmePage">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>React Boot CI v1</title>
+        <title>React Boot CI</title>
       </Helmet>
 
-      <h1>React Boot CI v1 README</h1>
+      <h1>React Boot CI README</h1>
       <ul>
         <li>
           React application is setup with <a href="https://sass-lang.com/">SASS</a>,{' '}
