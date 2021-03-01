@@ -147,6 +147,8 @@ const ReadmePage: React.FC = (): JSX.Element => (
         </li>
         <li>Added D3.js</li>
         <li>Added menu and routing</li>
+        <li>Added 404 handling</li>
+        <li>Added UI5 Web Components</li>
       </ul>
       <small>
         Note: It is recommended to install Prettier plugin to VSCode{' '}
@@ -156,7 +158,7 @@ const ReadmePage: React.FC = (): JSX.Element => (
       </small>
       <br />
       <br />
-      <small>last update: Feb. 2021</small>
+      <small>last update: March. 2021</small>
     </div>
   </div>
 );
