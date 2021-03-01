@@ -26,6 +26,7 @@ module.exports = {
         '^_common/(.+)': '<rootDir>/src/modules/common/$1',
         '^_dashboard/(.+)': '<rootDir>/src/modules/dashboard/$1',
       },
+      transformIgnorePatterns: ['node_modules/(?!(@ui5|lit-html)).*\\.js$'],
     };
   },
 };
