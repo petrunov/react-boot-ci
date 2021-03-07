@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactPanZoom from '@ajainarayanan/react-pan-zoom';
 
 type ChartNode = {
@@ -12,7 +12,8 @@ const OrgChartRoot: React.FC<PropsWithChartNode> = (props: PropsWithChartNode): 
   let dragMode = false;
   let cursorNode: HTMLElement | null = null;
   let originalDragHoverTarget: HTMLElement | null = null;
-  let scale: number = 1;
+  const [zoom] = useState(1);
+  let scale = zoom;
 
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
@@ -38,7 +39,7 @@ const OrgChartRoot: React.FC<PropsWithChartNode> = (props: PropsWithChartNode): 
       cursorNode.style.borderRadius = '0.5rem';
       cursorNode.style.fontFamily = 'arial, verdana, tahoma';
       cursorNode.style.fontSize = '1.1rem';
-      document.getElementsByClassName('chart-container')[0]?.prepend(cursorNode);
+      document.getElementsByClassName('pan-container')[0]?.prepend(cursorNode);
     }
   };
 
@@ -48,10 +49,19 @@ const OrgChartRoot: React.FC<PropsWithChartNode> = (props: PropsWithChartNode): 
       e.stopPropagation();
 
       if (cursorNode) {
+        // const panContainers: HTMLCollection = document.getElementsByClassName(
+        //   'pan-container',
+        // ) as HTMLCollectionOf<HTMLElement>;
+
+        // const panContainer: HTMLElement = panContainers[0].children[1] as HTMLElement;
+
+        // const x = parseInt(panContainer.style.transform.match(/matrix.*\((.+)\)/)![1].split(', ')[4], 10);
+        // const y = parseInt(panContainer.style.transform.match(/matrix.*\((.+)\)/)![1].split(', ')[5], 10);
+
         cursorNode.style.display = 'block';
         cursorNode.style.position = 'absolute';
         cursorNode.style.left = `${e.clientX + 10}px`;
-        cursorNode.style.top = `${e.clientY + 450}px`;
+        cursorNode.style.top = `${e.clientY + 10}px`;
       }
     }
   };
@@ -69,13 +79,14 @@ const OrgChartRoot: React.FC<PropsWithChartNode> = (props: PropsWithChartNode): 
   const handleMouseWheel = (e: React.WheelEvent) => {
     e.preventDefault();
 
-    scale += e.deltaY * -0.1;
+    scale += e.deltaY * -0.01;
 
     // Restrict scale
-    scale = Math.min(Math.max(0.125, scale), 4);
+    scale = Math.min(Math.max(0.125, scale), 2);
 
     // Apply scale transform
-    const el = document.getElementsByClassName('chart-root')[0] as HTMLElement;
+    const el = document.getElementsByClassName('chart-root')[0].children[0] as HTMLElement;
+    el.style.transformOrigin = `0px 0px`;
     el.style.transform = `scale(${scale})`;
   };
 
@@ -120,21 +131,23 @@ const OrgChartRoot: React.FC<PropsWithChartNode> = (props: PropsWithChartNode): 
   const { node } = props;
 
   return (
-    <ReactPanZoom>
-      <div
-        className="chart-container"
-        role="button"
-        tabIndex={-2}
-        onMouseDown={(e) => handleMouseDown(e)}
-        onMouseMove={(e) => handleMouseMove(e)}
-        onMouseUp={(e) => handleMouseUp(e)}
-        onWheel={(e) => handleMouseWheel(e)}
-      >
-        <ul className="chart-root">
-          <ChartNode node={node} />
-        </ul>
-      </div>
-    </ReactPanZoom>
+    <div onWheel={(e) => handleMouseWheel(e)}>
+      <ReactPanZoom zoom={zoom}>
+        <div
+          className="chart-container"
+          role="button"
+          tabIndex={-2}
+          onMouseDown={(e) => handleMouseDown(e)}
+          onMouseMove={(e) => handleMouseMove(e)}
+          onMouseUp={(e) => handleMouseUp(e)}
+          // onWheel={(e) => handleMouseWheel(e)}
+        >
+          <ul className="chart-root">
+            <ChartNode node={node} />
+          </ul>
+        </div>
+      </ReactPanZoom>
+    </div>
   );
 };
 

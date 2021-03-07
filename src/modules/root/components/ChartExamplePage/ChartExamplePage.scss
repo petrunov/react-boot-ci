@@ -5,20 +5,25 @@ body {
 .ptrn-Menu {
   position: relative;
   z-index: 2;
-  background: #ccc;
+}
+
+.pan-container {
+  width: 50000px;
+  height: 50000px;
 }
 
 .chart-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(100% + 1000px);
-  height: calc(97vh + 1000px);
-  margin: -500px 0 0 -500px;
+  $node-top-spacing: 10rem;
+  // margin: -500px 0 0 -500px;
   text-align: center;
 
+  ul.chart-root {
+    height: 50000px;
+    position: static;
+  }
+
   ul {
-    padding-top: 2rem;
+    padding-top: $node-top-spacing;
     position: relative;
     z-index: 1;
     transition: all 0.5s;
@@ -31,7 +36,7 @@ body {
     text-align: center;
     list-style-type: none;
     position: relative;
-    padding: 2rem 0.5rem 0 0;
+    padding: $node-top-spacing 0.5rem 0 0;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -63,7 +68,7 @@ body {
     right: 50%;
     border-top: 0.1rem solid #ccc;
     width: 50%;
-    height: 2rem;
+    height: $node-top-spacing;
   }
 
   li::after {
@@ -115,7 +120,7 @@ right connector from last child */
     left: 50%;
     border-left: 0.1rem solid #ccc;
     width: 0;
-    height: 2rem;
+    height: $node-top-spacing;
     margin-left: -0.1rem;
   }
 
