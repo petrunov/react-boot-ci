@@ -148,7 +148,7 @@ const ReadmePage: React.FC = (): JSX.Element => (
         <li>Added D3.js</li>
         <li>Added menu and routing</li>
         <li>Added 404 handling</li>
-        <li>Added UI5 Web Components</li>
+        <li>Added UI5 Web Components for React</li>
       </ul>
       <small>
         Note: It is recommended to install Prettier plugin to VSCode{' '}

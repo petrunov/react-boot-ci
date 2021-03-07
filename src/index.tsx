@@ -7,6 +7,7 @@ import Menu from '_common/components/Menu/Menu';
 import ReadmePage from '_root/components/ReadmePage/ReadmePage';
 import ChartExamplePage from '_root/components/ChartExamplePage/ChartExamplePage';
 import NotFoundPage from '_root/components/NotFoundPage/NotFoundPage';
+import OrgChartExamplePage from '_root/components/OrgChartExamplePage/OrgChartExamplePage';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -19,6 +20,9 @@ ReactDOM.render(
             <Switch>
               <Route exact path="/">
                 <ChartExamplePage />
+              </Route>
+              <Route exact path="/org1">
+                <OrgChartExamplePage />
               </Route>
               <Route path="/readme">
                 <ReadmePage />

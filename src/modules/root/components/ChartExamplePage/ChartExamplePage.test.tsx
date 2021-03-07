@@ -7,3 +7,9 @@ test('renders', () => {
   const element = screen.getByText(/Chart example/i);
   expect(element).toBeInTheDocument();
 });
+
+test('Renders heading', () => {
+  render(<ChartExample />);
+  const button = screen.getByRole('heading', { level: 1, name: 'React CI Boot' });
+  expect(button).toBeTruthy();
+});

@@ -2,6 +2,7 @@ import React from 'react';
 import BarChart from '_common/components/BarChart/BarChart';
 import Helmet from 'react-helmet';
 import { Button } from '@ui5/webcomponents-react/lib/Button';
+import './ChartExamplePage.scss';
 
 const ChartExamplePage: React.FC = (): JSX.Element => (
   <>
@@ -9,6 +10,8 @@ const ChartExamplePage: React.FC = (): JSX.Element => (
       <meta charSet="utf-8" />
       <title>Chart example</title>
     </Helmet>
+
+    <h1>React CI Boot </h1>
 
     <p>Web Component Button example:</p>
     <Button>UI5!</Button>
